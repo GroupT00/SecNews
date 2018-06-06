@@ -2,6 +2,7 @@
 SecNews是一款开源、安全、简洁、的文章分享平台。
 
 Python2.7 & Django 1.8.1 & Mysql 5.5.53
+
 灵感来源:http://wiki.ioin.in/
 
 # 为什么会有SecNews
