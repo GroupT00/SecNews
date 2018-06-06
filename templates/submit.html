@@ -1,0 +1,88 @@
+{% include "header.html" %}
+<div class="content">
+  <style>
+      .content {
+      width: 60%;
+      margin:0 auto;
+   }
+      #top-time {
+         width:40px;
+      }
+      #top-gory {
+         width:70px;
+      }
+       #top-title {
+         width:450px;
+      }
+      #top-click {
+         width:70px;
+      }
+      #pager {
+         left:50px;
+      }
+  </style>
+  <script>
+    $(function(){
+      $("a").click(function(){
+      var id = $(this).attr("id"); //获取点击的id
+      $.get('/click/?id='+id);
+    })
+})
+  </script>
+      <table class="table table-striped table-bordered table-hover table" width="100">
+   <thead>
+      <tr>
+      <th id="top-time">时间</th>
+      <th id="top-title">标题</th>
+      <th id="top-gory">类别</th>
+      <th id="top-click">点击</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      {% for athlete in contacts %}
+      <tr>
+      <td>{{ athlete.Art_time }}</td>
+      <td><a href="{{ athlete.Art_url }}" target="view_window" id="{{ athlete.id }}">{{ athlete.Art_title }}</a></td>
+      <td>
+      {% if athlete.Art_type == 0 %}
+      <a href="/前端安全/0/" target="view_window">
+        前端安全
+      {% elif athlete.Art_type == 1 %}
+      <a href="/后端渗透/1/" target="view_window">
+        后端渗透
+      {% elif athlete.Art_type == 2 %}
+      <a href="/漏洞分析/2/" target="view_window">
+        漏洞分析
+      {% elif athlete.Art_type == 3 %}
+      <a href="/夺旗竞赛/3/" target="view_window">
+        夺旗竞赛
+      {% elif athlete.Art_type == 4 %}
+      <a href="/神器分享/4/" target="view_window">
+        神器分享
+      {% elif athlete.Art_type == 5 %}
+      <a href="/程序之美/5/" target="view_window">
+        程序之美
+      {% endif %}
+      </a></td>
+      <td>{{ athlete.Art_click }}</td>
+      </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+   <ul class="pager" style="float:right">
+    {% if contacts.has_previous %}
+   <li><a href="?page={{ contacts.previous_page_number }}">Previous</a></li>
+   {% endif %}
+   <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+   </span>
+   {% if contacts.has_next %}
+   <li><a href="?page={{ contacts.next_page_number }}">Next</a></li>
+   </ul>
+   {% endif %}
+</div>
+   </body>
+   <HR>
+</html>

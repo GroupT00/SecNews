@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Sec News 安全文摘</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+      <link href="{% static './css/bootstrap.min.css'%}" rel="stylesheet">
+      <script src="{% static './js/jquery.js'%}"></script>
+      <script src="{% static './js/bootstrap.min.js'%}"></script>
+   </head>
+   <body>
+   <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+   <div class="container-fluid">
+   <div class="navbar-header">
+      <a class="navbar-brand" href="/"><b>Sec News<b></a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li class="glyphicon"><a href="/前端安全/0/">前端安全</a></li>
+         <li class="glyphicon"><a href="/后端渗透/1/">后端渗透</a></li>
+         <li class="glyphicon"><a href="/漏洞分析/2/">漏洞分析</a></li>
+         <li class="glyphicon"><a href="/夺旗竞赛/3/">夺旗竞赛</a></li>
+         <li class="glyphicon"><a href="/神器分享/4/">神器分享</a></li>
+         <li class="glyphicon"><a href="/程序之美/5/">程序之美</a></li>
+         
+<!--      <li class="dropdown"> 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                226安全团队 <b class="caret"></b>
+            </a> 
+            <ul class="dropdown-menu">
+                <li><a href="https://www.226safe.com/">官网</a></li> 
+                <li><a href="https://www.webug.org/">WeBug</a></li> 
+                <li><a href="https://www.we-report.cn/">Wereport</a></li> 
+                <li><a href="https://job.226safe.com/">安全招聘</a></li> 
+            </ul> 
+        </li>  -->
+      </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+               <button type="button" class="btn btn-primary navbar-btn" data-toggle="button" onclick="window.open('/submit/');"> 提交文章 </button>&nbsp&nbsp
+                <form class="navbar-form navbar-left" role="search" methot="GET" action="/search/">
+                  <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="s">
+                </div>
+                <input type="submit" class="btn btn-default" >&nbsp</input>
+             </form>
+            </li>
+        </ul>
+   </div>
+   </div>
+</nav>
